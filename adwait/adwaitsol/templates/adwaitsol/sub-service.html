@@ -1,0 +1,68 @@
+{% extends 'adwaitsol/base.html' %}
+{% load static %}
+{% block title %}
+  <title>{{ item.name }} | Adwait Solutions - Innovative IT & Mechanical Services in Canada</title>
+{% endblock %}
+{% block meta %}
+  <meta name="description" content="{{ item.tagline }}">
+  <meta name="keywords" content="{{ item.seo_keywords }}">
+{% endblock %}
+
+{% block content %}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url '' %}">Home</a></li>
+            {% for showmenu in menu %}
+            {% if showmenu.id == item.main_service_id_id  %}
+            <li><a href="{% url 'service' showmenu.url  %}">{{ showmenu.name }}</a></li>
+            {% endif %}
+            {% endfor %}
+          </ol>
+        </nav>
+        <h1>{{ item.name }}</h1>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            {{ item.content|safe }}
+          </div>
+          <div class="col-lg-4 relative" data-aos="fade-up" data-aos-delay="100">
+            <div class="sticky top-0">
+              <div class="services-list portfolio-info pb-3" data-aos="fade-up" data-aos-delay="200">
+                <h3>Sub Services</h3>
+                {% for smenu in submenu %}
+                {% if smenu.main_service_id_id == item.main_service_id_id %}
+                 <a href="{% url 'sub-service' smenu.url %}" {% if smenu.id == item.id %} class="active" {% endif %}><i class="bi bi-{{ smenu.icon }} icon px-3"></i> {{ smenu.name }}</a>
+                {% endif %}
+                {% endfor %}
+              </div>
+              <div class="services-list portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                <h3>Main Services</h3>
+                {% for main in menu %}
+                  <a href="{% url 'service' main.url %}" {% if main.id == item.main_service_id_id %} class="active" {% endif %}><i class="bi bi-{{ main.icon }} icon px-3"></i> {{ main.name }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  {% endblock %}

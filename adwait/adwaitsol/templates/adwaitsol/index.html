@@ -1,0 +1,268 @@
+{% extends 'adwaitsol/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Adwait - Expert IT and Mechanical Services | Tailored Solutions for Industry Leaders</title>
+{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="Adwait offers cutting-edge IT and mechanical services, from custom IT solutions to advanced engineering. Innovate, automate, and grow with expert solutions. Contact us today!" />
+  <meta name="keywords" content="IT services, mechanical services, engineering solutions, automation, cloud solutions, data engineering, software development, mechanical design, AI solutions, machine learning, IT infrastructure management, predictive maintenance" />
+{% endblock %}
+
+{% block content %}
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+            <h1>Empower Your Business with Adwait Solution</h1>
+            <p>Transforming Innovation through Cutting-Edge Automation and Expert Design.</p>
+            <div class="d-flex">
+              <a href="{% url 'contact' %}" class="btn-get-started">Contact us to start innovating!</a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{% static 'img/hero-img.png' %}" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Us</h2>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 about-img mt-0 pt-0">
+            <img src="{% static 'img/about2.png' %}" class="img-fluid make-400 img-anime" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+          <div class="col-lg-7 content" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              Adwait Solutions specializes in delivering cutting-edge software and mechanical design solutions that drive automation across diverse industries. From healthcare to manufacturing, our expertise bridges the gap between local businesses and global opportunities. We offer tailored web development, CRM solutions, and innovative mechanical designs to streamline operations, enhance efficiency, and solve complex challenges.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> <span>Provide top-tier software and mechanical design solutions that meet and exceed client expectations.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Empower businesses across various industries with automation technologies that reduce manual effort and increase operational efficiency.
+              </span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Build long-term partnerships by ensuring our clients’ success and growth through personalized, results-driven solutions.
+              </span></li>
+            </ul>
+          </div>
+          <div class="about-btn">
+            <a href="{% url 'about' %}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /About Section -->
+
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="section why-us light-background" data-builder="section">
+
+      <div class="container-fluid">
+        <div class="row gy-4">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+              <h3><strong>Tailored IT </strong>and <strong>Mechanical Design Solutions</strong></h3>
+              <p>
+                At Adwait Solutions, we offer customized IT and mechanical design solutions to address your specific business challenges. Our personalized approach ensures that you receive targeted strategies and tools designed to meet your unique needs.
+              </p>
+            </div>
+            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+              <div class="faq-item faq-active">
+                <h3><span>01</span>Adwait Industry Expertise?</h3>
+                <div class="faq-content">
+                  <p>With extensive experience in various sectors, including healthcare, logistics, manufacturing, and more, our team possesses a deep understanding of industry-specific requirements and trends. This expertise allows us to provide relevant and impactful solutions for diverse industries</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span>02</span>Why Adwait for Advanced Automation Technologies?</h3>
+                <div class="faq-content">
+                  <p>We specialize in automation technologies that enhance efficiency and streamline business processes. Our solutions are designed to reduce manual efforts and make your operations more agile and responsive to change.
+                  </p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span>03</span>Why Adwait for Innovative Mechanical Designs?</h3>
+                <div class="faq-content">
+                  <p> Our mechanical design experts deliver cutting-edge, innovative design solutions that tackle both current and future challenges. We focus on creating practical and creative designs that give your business a competitive edge.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 order-1 order-lg-2 why-us-img img-anime">
+            <img src="{% static 'img/why-us.png' %}" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    
+        <div class="row">
+    
+          <div class="col-lg-6 d-flex align-items-center">
+            <img src="{% static 'img/skills.png' %}" class="img-fluid" alt="Skills Illustration">
+          </div>
+    
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+    
+            <h3>Expertise That Drives Innovation and Efficiency</h3>
+            <p class="fst-italic">
+              Our team excels in a range of technical skills, ensuring top-notch solutions for your business needs. Here’s a glimpse of our core competencies:
+            </p>
+    
+            <div class="skills-content skills-animation">
+    
+              <div class="progress">
+                <span class="skill"><span>Web Development</span> <i class="val">95%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div><!-- End Skills Item -->
+    
+              <div class="progress">
+                <span class="skill"><span>CRM Solutions</span> <i class="val">85%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div><!-- End Skills Item -->
+    
+              <div class="progress">
+                <span class="skill"><span>Mechanical Design</span> <i class="val">80%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div><!-- End Skills Item -->
+    
+              <div class="progress">
+                <span class="skill"><span>Automation Technologies</span> <i class="val">70%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div><!-- End Skills Item -->
+    
+            </div>
+    
+          </div>
+        </div>
+    
+      </div>
+    
+    </section><!-- /Skills Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Empowering Innovation through Automation and Design.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          {% for showmenu in menu %}
+            {% if showmenu.show == 1 %}
+              <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item position-relative about">
+                  <div class="icon"><i class="bi bi-{{ showmenu.icon }} icon"></i></div>
+                  <h4><a href="{% url 'service' showmenu.url %}" class="stretched-link">{{ showmenu.name }}</a></h4>
+                  <p class="service-show h-me">{{ showmenu.tagline }}</p>
+                  <div class="about-btn mt-3 align-item-left">
+                    <a href="{% url 'service' showmenu.url %}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div><!-- End Service Item -->
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section><!-- /Services Section -->
+    
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background">
+
+      <img src="{% static 'img/cta-bg.jpg' %}" alt="">
+
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-9 text-center text-xl-start">
+            <h3>Ready to Transform Your Business?</h3>
+            <p>Contact us today to explore innovative solutions that drive efficiency, boost productivity, and position your business for global success. Let’s discuss how we can help you achieve your goals.</p>
+          </div>
+          <div class="col-xl-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="{% url 'contact' %}">Get in Touch</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Blogs</h2>
+        <p>Explore our latest insights, trends, and updates in the industry. Discover valuable information and expert advice on our blog.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        
+        <div class="row gy-4">
+          {% for blog in blogs %}
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-item featured">
+              <div class="card blogs">
+                <img class="card-img-top" src="../media/{{ blog.img }}" alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">{{ blog.subject }}</h4>
+                  <p class="card-text">{{ blog.description }}</p>
+                  <p>{{ blog.tags }}</p>
+                  <div class="about-btn">
+                    <a href="{% url 'blog' blog.url %}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Blog Item -->
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /Blog Section -->
+
+    
+  </main>
+
+  {% endblock %}

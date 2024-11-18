@@ -1,0 +1,59 @@
+{% extends 'adwaitsol/base.html' %}
+{% load static %}
+{% block title %}
+  <title>Adwait Solutions Blog Hub - IT & Mechanical Services News & Insights</title>
+{% endblock %}
+{% block meta %}
+  <meta name="description" content="Stay updated with the latest trends in IT, mechanical services, and industry news. Explore our blog for insights on technology, AI, cloud computing, and more at Adwait Solutions.">
+  <meta name="keywords" content="IT services, mechanical services, technology trends, cloud computing, AI, software development, industry news, business technology">
+{% endblock %}
+
+{% block content %}
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title" data-aos="fade">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <ol>
+          <li><a href="{% url '' %}">Home</a></li>
+          <li class="current">Blogs</li>
+        </ol>
+      </nav>
+      <h1>Blog Hub: Expert Insights and Latest Updates</h1>
+    </div>
+  </div><!-- End Page Title -->
+   <!-- Blog Section -->
+   <section id="blog" class="blog section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Our Blog Corner</h2>
+      <p>Explore our latest insights, trends, and updates in the industry. Discover valuable information and expert advice on our blog.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+      
+      <div class="row gy-4">
+        {% for blog in blogs %}
+        <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="pricing-item featured">
+            <div class="card blogs">
+              <img class="card-img-top" src="../media/{{ blog.img }}" alt="{{ blog.subject }}">
+              <div class="card-body">
+                <h4 class="card-title"><a href="{% url 'blog' blog.url %}">{{ blog.subject }}</a></h4>
+                <p class="card-text">{{ blog.description }}</p>
+                <p>{{ blog.tags }}</p>
+                <div class="about-btn">
+                  <a href="{% url 'blog' blog.url %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Blog Item -->
+        {% endfor %}
+      </div>
+      
+    </div>
+  </section><!-- /Blog Section -->
+{% endblock %}

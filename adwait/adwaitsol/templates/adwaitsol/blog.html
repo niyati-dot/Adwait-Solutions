@@ -1,0 +1,91 @@
+{% extends 'adwaitsol/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>{{ item.subject }} | Adwait Solutions Blog </title>
+{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="{{ item.description | default:'Discover premium IT and mechanical services designed to boost your business efficiency and innovation. Contact us for tailored solutions.' }}">
+  <meta name="keywords" content="{{ item.seo_keywords | default:'IT services, mechanical engineering, automation, cloud computing, software solutions, custom solutions' }}">
+  <meta property="og:title" content="{{ item.subject }} | Adwait Solutions Blog">
+  <!-- Open Graph Meta Tags for Facebook, Instagram, LinkedIn -->
+  <meta property="og:title" content="{{ item.subject }} | Adwait Solutions Blog">
+  <meta property="og:description" content="{{ item.description }}">
+  <meta property="og:image" content="../media/{{ item.img }}">
+  <meta property="og:image:width" content="1800">
+  <meta property="og:image:height" content="600">
+  <meta property="og:url" content="{% url 'blog' item.url %}">
+  <meta property="og:site_name" content="Adwait Solutions">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ item.subject }} | Adwait Solutions Blog">
+  <meta name="twitter:description" content="{{ item.description }}">
+  <meta name="twitter:image" content="../media/{{ item.img }}">
+  <meta name="twitter:site" content="@AdwaitSolutions"> <!--have to add my Twitter handle -->
+  <meta name="twitter:url" content="{% url 'blog' item.url %}">
+
+{% endblock %}
+
+{% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url '' %}">Home</a></li>
+            <li><a href="{% url 'blogs' %}">Blogs</a></li>
+          
+          </ol>
+        </nav>
+        <h1>Blog Hub: Expert Insights and Latest Updates</h1>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{{ item.subject }}</h2>
+        <p>{{ item.description }}</p>
+      </div><!-- End Section Title -->
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+              {{ item.content|safe }}
+          </div>
+
+          <div class="col-lg-4 relative">
+            <div class="sticky top-0">
+              <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                <h3>Blog information</h3>
+                <ul>{% for services in menu %}{% if services.id == item.main_service_id_id  %}
+                  <li><strong>Category</strong>: {{ services.name }}</li>{% endif %}{% endfor %}
+                  <li><strong>Tags</strong>: {{ item.tags }}</li>
+                  <li><strong>Blog Published</strong>: {{ item.creation_date|date:'Y' }}</li>
+                </ul>
+              </div>
+              <div class="portfolio-description mb-5" data-aos="fade-up" data-aos-delay="300">
+                <img src="../media/{{ item.img }}" class="img-fluid make img-anime" alt="{{ item.subject }}" data-aos="zoom-in" data-aos-delay="100">
+              </div>
+              <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                <h3>More Blogs You Might Enjoy</h3>
+                {% for blog in blogs %}
+                {% if blog.id != item.id %}
+                  <h6 class="pb-3"><a href="{% url 'blog' blog.url %}">{{ blog.subject }}</a></h6>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Portfolio Details Section -->
+  </main>
+{% endblock %}

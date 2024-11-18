@@ -1,0 +1,180 @@
+{% extends 'adwaitsol/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Best {{ item.name }} Provider in Canada | Adwait Solutions - Innovative IT & Mechanical Services </title>
+{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="{{ item.tagline | default:'Discover premium IT and mechanical services designed to boost your business efficiency and innovation. Contact us for tailored solutions.' }}">
+  <meta name="keywords" content="{{ item.seo_keywords | default:'IT services, mechanical engineering, automation, cloud computing, software solutions, custom solutions' }}">
+{% endblock %}
+
+{% block content %}
+<style>
+  .hero-image {
+    background-image: url("../media/{{ item.img }}");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+  <main class="main">
+  {% if item.content %} 
+    <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background service-page">
+
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+              <h1>{{ item.name }}</h1>
+              <p>{{ item.tagline }}</p>
+              <div class="d-flex">
+                <a href="{% url 'contact' %}" class="btn-get-started">Contact us to start innovating!</a>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                <img src="{% static 'img/web-development/1.svg' %}" class="img-fluid animated" alt="{{ item.name }}">
+            </div>
+          </div>
+        </div>
+
+      </section><!-- /Hero Section -->
+
+      <!-- Service Details Section -->
+      <section id="service-details" class="service-details section">
+
+        <div class="container">
+
+          <div class="row gy-4">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                {{ item.content|safe }}
+            </div>
+            <div class="col-lg-4 relative" data-aos="fade-up" data-aos-delay="100">
+              <div class="services-list sticky top-0">
+                {% for main in menu %}
+                {% if main.dept_id_id == item.dept_id_id %}
+                  <a href="{% url 'service' main.url %}" {% if main.id == item.id %} class="active" {% endif %}><i class="bi bi-{{ main.icon }} icon px-3"></i> {{ main.name }}</a>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section><!-- /Service Details Section -->
+
+  {% else %}
+
+    <div class="coming-soon">
+      <img src="{% static 'img/coming-soon.jpg' %}" class="img-fluid animated" alt="coming-soon">
+    </div>
+
+  {% endif %}
+
+
+  {% if technologies %}
+    <!-- Technologies Section -->
+    <section id="technologies" class="services section technologies-section">
+
+      <!-- Technologies Title -->
+      <div class="container section-title" data-aos="fade-up">
+         <h2>{{ item.name.split.0 }} Technologies We Work With</h2>
+        <p>Transforming Ideas into Reality with Advanced Automation and Design Solutions.</p>
+      </div><!-- End Technologies Title -->
+
+      <div class="container">
+        <div class="row gy-4 justify-center">
+          {% for tech in technologies %}
+              <div class="col-xl-2 col-md-2 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item position-relative about">
+                  <div class="icon"><img src="../media/{{ tech.icon }}" width="100" height="100" class="tech-img" alt="{{ tech.name }}"></div>
+                  <h4 class="tech-name">{{ tech.name }}</h4>
+                </div>
+              </div><!-- End Technologies Item -->
+          {% endfor %}
+        </div>
+      </div>
+
+    </section><!-- /Technologies Section -->
+  {% endif %}
+
+
+  {% if submenu %}
+    <!-- Sub Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!--Sub Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our {{ item.name.split.0 }} Services</h2>
+        <p>Empowering Innovation through Automation and Design.</p>
+      </div><!--End Sub Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          {% for smenu in submenu %}
+            {% if smenu.main_service_id_id == item.id %}
+              <div class="col-xl-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item position-relative about">
+                  <div class="icon"><i class="bi bi-{{ smenu.icon }} icon"></i></div>
+                  <h4><a href="{% url 'sub-service' smenu.url %}" class="stretched-link">{{ smenu.name }}</a></h4>
+                  <p class="service-show pb-4 h-me">{{ smenu.tagline }}</p>
+                  <div class="about-btn align-item-left">
+                    <a href="{% url 'sub-service' smenu.url %}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div><!-- End Sub Service Item -->
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      
+    </section><!-- /Sub Services Section -->
+  {% endif %}
+
+
+  {% if blogs %}
+     <!-- Blog Section -->
+     <section id="blog" class="blog section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>{{ item.name.split.0 }} Blogs</h2>
+        <p>Explore our latest insights, trends, and updates in the industry. Discover valuable information and expert advice on our blog.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        
+        <div class="row gy-4">
+          {% for blog in blogs %}
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pricing-item featured">
+              <div class="card blogs">
+                <img class="card-img-top" src="../media/{{ blog.img }}" alt="{{ blog.subject }}">
+                <div class="card-body">
+                  <h4 class="card-title">{{ blog.subject }}</h4>
+                  <p class="card-text">{{ blog.description }}</p>
+                  <p>{{ blog.tags }}</p>
+                  <div class="about-btn">
+                    <a href="{% url 'blog' blog.url %}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Blog Item -->
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /Blog Section -->
+  {% endif %}
+
+
+  </main>
+
+  {% endblock %}
