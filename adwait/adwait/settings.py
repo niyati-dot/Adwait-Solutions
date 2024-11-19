@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'adwait',
-        'USER': 'admin',
-        'PASSWORD': 'Adwait@161828',
+        'USER': 'root',
+        'PASSWORD': 'niya',
         'HOST': 'localhost',
         'PORT': '3306',
     }
